@@ -5,7 +5,7 @@ def main():
     character_count = each_character_used(text)
     sorted_characters = sort_characters_by_amount(character_count)
     print(f"--- Begin report of {book_path} ---")
-    print(f"{amount} words found in the document")
+    print(f"{amount} words found in the document\n")
     for dict in sorted_characters:
         if dict["character"].isalpha():
             print(f"The '{dict['character']}' character was found {dict['value']} times")
