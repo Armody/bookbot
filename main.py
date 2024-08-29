@@ -3,8 +3,11 @@ def main():
     text = get_book_text(book_path)
     amount = get_number_of_words(text)
     character_count = each_character_used(text)
-    print(amount)
+    
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{amount} words found in the document")
     print(character_count)
+    print("--- End report ---")
 
 def get_book_text(path):
     with open(path) as f:
@@ -24,5 +27,8 @@ def each_character_used(text):
         else:
             character_count[character] += 1
     return character_count
+
+#def sort_characters_by_amount(character):
+
 
 main()
