@@ -7,9 +7,8 @@ def main():
     print(f"--- Begin report of {book_path} ---")
     print(f"{amount} words found in the document")
     for dict in sorted_characters:
-        character = dict["character"]
-        value = dict["value"]
-        print(f"The '{character}' character was found {value} times")
+        if dict["character"].isalpha():
+            print(f"The '{dict['character']}' character was found {dict['value']} times")
     print("--- End report ---")
 
 def get_book_text(path):
@@ -35,11 +34,7 @@ def sort_characters_by_amount(characters):
     characters_list = []
     ## Convert to list of dictionaries
     for character in characters:
-        if character.isalpha():
-            temp = {}
-            temp["character"] = character
-            temp["value"] = characters[character]
-            characters_list.append(temp)
+        characters_list.append({"character": character, "value": characters[character]})
     ## Sorts
     characters_list.sort(key=sort_on, reverse=True) 
     return characters_list
